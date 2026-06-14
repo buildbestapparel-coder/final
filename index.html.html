@@ -1,0 +1,433 @@
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700&display=swap');
+*{margin:0;padding:0;box-sizing:border-box;}
+:root{--gold:#c9a84c;--gold2:#e8c45e;--dark:#0a0a0a;--card:#111111;--card2:#161616;--border:#c9a84c22;--text:#f0ead6cc;--muted:#f0ead666;}
+body{font-family:'Inter',sans-serif;background:var(--dark);color:#f0ead6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+
+nav{display:flex;justify-content:space-between;align-items:center;padding:.9rem 2.5rem;border-bottom:1px solid var(--border);position:sticky;top:0;background:#0a0a0af2;backdrop-filter:blur(10px);z-index:100;}
+.logo-text{display:flex;flex-direction:column;line-height:1;}
+.logo-bb{font-family:'Bebas Neue',sans-serif;font-size:26px;letter-spacing:4px;color:var(--gold);}
+.logo-sub{font-size:8px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:#f0ead655;margin-top:-2px;}
+.nav-links{display:flex;gap:1.6rem;list-style:none;}
+.nav-links a{font-size:10px;font-weight:500;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .2s;}
+.nav-links a:hover{color:var(--gold);}
+.nav-cta{background:var(--gold);color:#0a0a0a;padding:.5rem 1.3rem;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;transition:background .2s;border-radius:2px;}
+.nav-cta:hover{background:var(--gold2);}
+
+.ticker{background:var(--gold);padding:9px 0;overflow:hidden;white-space:nowrap;}
+.ticker-inner{display:inline-flex;gap:2.5rem;animation:tick 22s linear infinite;}
+.ticker-inner span{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#0a0a0a;}
+.ticker-inner .sep{opacity:.35;}
+@keyframes tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+.hero{padding:4.5rem 2.5rem 4rem;display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center;max-width:1100px;margin:0 auto;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--gold);color:var(--gold);font-size:9px;font-weight:600;letter-spacing:3px;text-transform:uppercase;padding:5px 14px;margin-bottom:1.2rem;border-radius:2px;}
+.hero h1{font-family:'Bebas Neue',sans-serif;font-size:clamp(50px,8vw,88px);line-height:.92;letter-spacing:1px;margin-bottom:1.2rem;}
+.hero h1 em{color:var(--gold);font-style:normal;display:block;}
+.hero p{font-size:12px;color:var(--text);line-height:2;max-width:400px;margin-bottom:2rem;font-weight:300;}
+.hero-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-gold{background:var(--gold);color:#0a0a0a;padding:.8rem 1.8rem;font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:background .2s;display:inline-block;}
+.btn-gold:hover{background:var(--gold2);}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;border:1px solid #25d36655;color:#25d366;padding:.8rem 1.8rem;font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;border-radius:2px;transition:border-color .2s;}
+.btn-wa:hover{border-color:#25d366;}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.hstat{background:var(--card);border:1px solid var(--border);padding:1.4rem 1.2rem;border-top:2px solid var(--gold);border-radius:4px;}
+.hstat-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:var(--gold);line-height:1;}
+.hstat-label{font-size:9px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;font-weight:500;}
+.hstat-sub{font-size:10px;color:#f0ead622;margin-top:4px;line-height:1.5;}
+
+.perks{display:flex;gap:0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.perk{flex:1;padding:.9rem 1rem;display:flex;align-items:center;gap:8px;border-right:1px solid var(--border);font-size:10px;font-weight:500;letter-spacing:.5px;color:var(--text);}
+.perk:last-child{border-right:none;}
+.perk i{font-size:15px;color:var(--gold);}
+
+.full-dark{background:var(--card2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:5rem 2.5rem;}
+.full-dark-inner{max-width:1100px;margin:0 auto;}
+section{padding:5rem 2.5rem;max-width:1100px;margin:0 auto;}
+.sec-eye{font-size:10px;font-weight:600;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:.4rem;}
+.sec-title{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,5vw,54px);letter-spacing:1px;margin-bottom:.4rem;line-height:1.05;color:#f0ead6;}
+.sec-sub{font-size:12px;color:var(--muted);margin-bottom:2.5rem;max-width:520px;line-height:1.9;font-weight:300;}
+
+.srv-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(155px,1fr));gap:10px;}
+.srv{background:var(--card);border:1px solid var(--border);padding:1.6rem 1.3rem;border-radius:6px;transition:border-color .2s,transform .2s;cursor:default;}
+.srv:hover{border-color:var(--gold);transform:translateY(-3px);}
+.srv i{font-size:26px;color:var(--gold);margin-bottom:.9rem;display:block;}
+.srv h3{font-size:13px;font-weight:600;margin-bottom:.4rem;letter-spacing:.5px;color:#f0ead6;}
+.srv p{font-size:11px;color:var(--muted);line-height:1.7;font-weight:300;}
+
+.process-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.step{background:var(--card);border:1px solid var(--border);padding:2rem 1.4rem;border-radius:6px;position:relative;}
+.step-num{font-family:'Bebas Neue',sans-serif;font-size:52px;color:#f0ead205;position:absolute;top:.8rem;right:1rem;line-height:1;}
+.step i{font-size:24px;color:var(--gold);margin-bottom:.9rem;display:block;}
+.step h3{font-size:14px;font-weight:600;margin-bottom:.5rem;color:#f0ead6;}
+.step p{font-size:11px;color:var(--muted);line-height:1.8;font-weight:300;}
+
+.why-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;}
+.why{background:var(--card);border:1px solid var(--border);padding:1.4rem 1.3rem;border-radius:6px;}
+.why i{font-size:20px;color:var(--gold);margin-bottom:.7rem;display:block;}
+.why h3{font-size:12px;font-weight:600;margin-bottom:.4rem;letter-spacing:.3px;color:#f0ead6;}
+.why p{font-size:11px;color:var(--muted);line-height:1.7;font-weight:300;}
+
+.logo-row{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:1.5rem;}
+.logo-pill{background:var(--card);border:1px solid var(--border);padding:.6rem 1.4rem;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:1px;color:var(--gold);display:flex;align-items:center;gap:6px;}
+.logo-pill i{font-size:15px;}
+
+.ship-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:1.5rem;}
+.ship-card{background:var(--card);border:1px solid var(--border);padding:1.2rem .8rem;border-radius:6px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:6px;}
+.ship-card i{font-size:22px;color:var(--gold);}
+.ship-card span{font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--muted);}
+
+.pay-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:10px;margin-top:1.5rem;}
+.pay-card{background:var(--card);border:1px solid var(--border);padding:1.2rem .8rem;border-radius:6px;text-align:center;}
+.pay-card i{font-size:20px;color:var(--gold);display:block;margin-bottom:5px;}
+.pay-card span{font-size:10px;font-weight:600;letter-spacing:.5px;color:var(--muted);}
+
+.faq-list{display:flex;flex-direction:column;gap:8px;max-width:750px;}
+.faq-item{background:var(--card);border:1px solid var(--border);border-radius:6px;overflow:hidden;}
+.faq-q{padding:1rem 1.3rem;display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:12px;font-weight:500;gap:12px;color:#f0ead6;}
+.faq-q:hover{background:#161616;}
+.faq-q i{font-size:15px;color:var(--gold);flex-shrink:0;}
+.faq-a{display:none;padding:0 1.3rem 1rem;font-size:11px;color:var(--muted);line-height:1.9;font-weight:300;}
+.faq-a.open{display:block;}
+
+.quote-wrap{padding:0 2.5rem 5rem;max-width:1100px;margin:0 auto;}
+.quote-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:3rem 2.5rem;border-top:2px solid var(--gold);}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:2rem;}
+.field{display:flex;flex-direction:column;gap:5px;}
+.field label{font-size:9px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--muted);}
+.field select,.field input,.field textarea{background:#0e0e0e;border:1px solid var(--border);color:#f0ead6;padding:.7rem 1rem;font-family:'Inter',sans-serif;font-size:11px;outline:none;border-radius:4px;transition:border-color .2s;width:100%;}
+.field select:focus,.field input:focus,.field textarea:focus{border-color:var(--gold);}
+.field select option{background:#111;}
+.field textarea{min-height:90px;resize:vertical;}
+.field input::placeholder,.field textarea::placeholder{color:var(--muted);}
+.submit-btn{margin-top:12px;background:var(--gold);color:#0a0a0a;border:none;padding:1rem;font-family:'Inter',sans-serif;font-size:10px;letter-spacing:3px;text-transform:uppercase;font-weight:700;cursor:pointer;width:100%;border-radius:4px;transition:background .2s;}
+.submit-btn:hover{background:var(--gold2);}
+
+footer{border-top:1px solid var(--border);padding:3rem 2.5rem;display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:2rem;max-width:1100px;margin:0 auto;}
+.footer-brand p{font-size:11px;color:var(--muted);line-height:1.9;font-weight:300;max-width:190px;margin-top:.8rem;}
+.footer-social{display:flex;gap:8px;margin-top:1rem;}
+.soc{width:32px;height:32px;border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:14px;color:var(--muted);border-radius:4px;transition:border-color .2s,color .2s;}
+.soc:hover{border-color:var(--gold);color:var(--gold);}
+.footer-col h4{font-size:9px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:.9rem;}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:7px;}
+.footer-col li a{font-size:11px;color:var(--muted);transition:color .2s;font-weight:300;}
+.footer-col li a:hover{color:var(--gold);}
+.footer-bottom{border-top:1px solid var(--border);padding:1.2rem 2.5rem;max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.footer-bottom p{font-size:10px;color:#f0ead622;letter-spacing:.5px;}
+
+.wa-float{position:fixed;bottom:24px;right:24px;background:#25d366;width:52px;height:52px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;box-shadow:0 4px 20px #25d36644;z-index:999;transition:transform .2s;}
+.wa-float:hover{transform:scale(1.1);}
+
+.cert-row{display:flex;gap:12px;flex-wrap:wrap;margin-top:1.5rem;}
+.cert{background:var(--card);border:1px solid var(--border);border-left:3px solid var(--gold);padding:1rem 1.4rem;border-radius:4px;display:flex;align-items:center;gap:10px;}
+.cert i{font-size:20px;color:var(--gold);}
+.cert span{font-size:11px;font-weight:600;letter-spacing:1px;color:#f0ead6;}
+</style>
+
+<div>
+
+<nav>
+  <div class="logo-text">
+    <span class="logo-bb">BUILD BEST</span>
+    <span class="logo-sub">— Apparel —</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#">Services</a></li>
+    <li><a href="#">Process</a></li>
+    <li><a href="#">Why Us</a></li>
+    <li><a href="#">Shipping</a></li>
+    <li><a href="#">FAQ</a></li>
+    <li><a href="#">Contact</a></li>
+  </ul>
+  <a class="nav-cta" href="#">Get a Quote →</a>
+</nav>
+
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Premium Quality</span><span class="sep">◆</span>
+    <span>Custom Sportswear</span><span class="sep">◆</span>
+    <span>Streetwear</span><span class="sep">◆</span>
+    <span>Fashion Wear</span><span class="sep">◆</span>
+    <span>2 Weeks Turnaround</span><span class="sep">◆</span>
+    <span>Worldwide Shipping</span><span class="sep">◆</span>
+    <span>Free Mockups 24/7</span><span class="sep">◆</span>
+    <span>OEM & Private Label</span><span class="sep">◆</span>
+    <span>Order Direct From Factory</span><span class="sep">◆</span>
+    <span>Premium Quality</span><span class="sep">◆</span>
+    <span>Custom Sportswear</span><span class="sep">◆</span>
+    <span>Streetwear</span><span class="sep">◆</span>
+    <span>Fashion Wear</span><span class="sep">◆</span>
+    <span>2 Weeks Turnaround</span><span class="sep">◆</span>
+    <span>Worldwide Shipping</span><span class="sep">◆</span>
+    <span>Free Mockups 24/7</span><span class="sep">◆</span>
+    <span>OEM & Private Label</span><span class="sep">◆</span>
+    <span>Order Direct From Factory</span><span class="sep">◆</span>
+  </div>
+</div>
+
+<div style="max-width:1100px;margin:0 auto;">
+<div class="hero">
+  <div>
+    <div class="hero-tag"><i class="ti ti-map-pin" aria-hidden="true"></i> OEM & Private Label Manufacturer — Sialkot, Pakistan</div>
+    <h1>Bring Your<em>Brand</em>To Life.</h1>
+    <p>Build Best Apparel is a premium OEM & private label clothing manufacturer. Sportswear, streetwear, fashion wear — your vision, our craftsmanship. Order direct from the factory.</p>
+    <div class="hero-btns">
+      <a class="btn-gold" href="#">Get Free Mockup →</a>
+      <a class="btn-wa" href="https://wa.me/923248903534" target="_blank">
+        <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+        WhatsApp Us
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hstat">
+      <div class="hstat-num">50K+</div>
+      <div class="hstat-label">Pieces / Month</div>
+      <div class="hstat-sub">Production capacity ready</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">20+</div>
+      <div class="hstat-label">Services</div>
+      <div class="hstat-sub">All decoration methods</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">500+</div>
+      <div class="hstat-label">Brands Served</div>
+      <div class="hstat-sub">Globally trusted</div>
+    </div>
+    <div class="hstat">
+      <div class="hstat-num">30+</div>
+      <div class="hstat-label">Countries</div>
+      <div class="hstat-sub">Worldwide export ready</div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="perks">
+  <div class="perk"><i class="ti ti-trophy" aria-hidden="true"></i> 2 Weeks Turnaround</div>
+  <div class="perk"><i class="ti ti-world" aria-hidden="true"></i> Worldwide Shipping</div>
+  <div class="perk"><i class="ti ti-pencil" aria-hidden="true"></i> Free Mockups 24/7</div>
+  <div class="perk"><i class="ti ti-shield-check" aria-hidden="true"></i> Premium Quality</div>
+  <div class="perk"><i class="ti ti-building-factory-2" aria-hidden="true"></i> Direct From Factory</div>
+</div>
+
+<section>
+  <p class="sec-eye">All In One Custom Apparel Solutions</p>
+  <h2 class="sec-title">Our Services</h2>
+  <p class="sec-sub">We manufacture and customize everything your brand needs — from high performance sportswear to premium streetwear and fashion wear.</p>
+  <div class="srv-grid">
+    <div class="srv"><i class="ti ti-run" aria-hidden="true"></i><h3>Sportswear</h3><p>Performance activewear built for movement — tracksuits, compression wear, gym sets and more.</p></div>
+    <div class="srv"><i class="ti ti-shirt" aria-hidden="true"></i><h3>Streetwear</h3><p>Oversized hoodies, graphic tees, sweatsuits and urban drops built for the culture.</p></div>
+    <div class="srv"><i class="ti ti-hanger" aria-hidden="true"></i><h3>Fashion Wear</h3><p>Contemporary collections with premium fabrics, clean stitching and export ready finishing.</p></div>
+    <div class="srv"><i class="ti ti-needle-thread" aria-hidden="true"></i><h3>Embroidery</h3><p>High quality embroidery with precision and clean detailing for logos and brand patches.</p></div>
+    <div class="srv"><i class="ti ti-printer" aria-hidden="true"></i><h3>DTG & Screen Print</h3><p>Full color digital and screen printing with vibrant detail and sharp creativity.</p></div>
+    <div class="srv"><i class="ti ti-tag" aria-hidden="true"></i><h3>Private Label / OEM</h3><p>Your brand, your label. Full OEM production with custom tags, packaging and hangtags.</p></div>
+  </div>
+</section>
+
+<div class="full-dark">
+<div class="full-dark-inner">
+  <p class="sec-eye">The Process</p>
+  <h2 class="sec-title">How It Works</h2>
+  <p class="sec-sub">A streamlined production flow for clothing brands, startups, retailers and teams worldwide.</p>
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <i class="ti ti-clipboard-list" aria-hidden="true"></i>
+      <h3>Submit Inquiry</h3>
+      <p>Send product type, quantity, colors, logo idea and deadline. Our team reviews your requirement within 24 hours and replies with a clear direction.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <i class="ti ti-palette" aria-hidden="true"></i>
+      <h3>Free Mockup & Estimate</h3>
+      <p>We suggest fabric, decoration method, estimated pricing and the best production direction. You get a free mockup before any commitment.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <i class="ti ti-package" aria-hidden="true"></i>
+      <h3>Approve & Produce</h3>
+      <p>After your approval, production moves through stitching, customization, quality check and worldwide dispatch via your preferred courier.</p>
+    </div>
+  </div>
+</div>
+</div>
+
+<section>
+  <p class="sec-eye">Why Brands Choose Us</p>
+  <h2 class="sec-title">Built For Serious Apparel Buyers</h2>
+  <p class="sec-sub">We focus on quality, fast communication, reliable finishing and production support for growing brands of all sizes.</p>
+  <div class="why-grid">
+    <div class="why"><i class="ti ti-target" aria-hidden="true"></i><h3>Built For Custom Orders</h3><p>Your colors, your logo, your identity. Every order is made around your exact brand direction.</p></div>
+    <div class="why"><i class="ti ti-diamond" aria-hidden="true"></i><h3>Premium Apparel Finish</h3><p>Fabric guidance, clean stitching, durable decoration and export ready finishing on every order.</p></div>
+    <div class="why"><i class="ti ti-message-circle" aria-hidden="true"></i><h3>Fast Communication</h3><p>Quick replies on WhatsApp, clear quotation direction and production updates throughout.</p></div>
+    <div class="why"><i class="ti ti-world" aria-hidden="true"></i><h3>Worldwide Shipping</h3><p>We support international buyers with packing, shipping coordination and all export documents.</p></div>
+    <div class="why"><i class="ti ti-pencil" aria-hidden="true"></i><h3>Free Mockups & Techpacks</h3><p>We help convert your concept into production ready direction — no design experience needed.</p></div>
+    <div class="why"><i class="ti ti-stack" aria-hidden="true"></i><h3>Bulk Order Specialists</h3><p>From small brand drops to large repeat orders — our workflow is built to scale with your brand.</p></div>
+  </div>
+</section>
+
+<div class="full-dark">
+<div class="full-dark-inner">
+  <p class="sec-eye">Worldwide Logistics</p>
+  <h2 class="sec-title">Our Shipping Partners</h2>
+  <p class="sec-sub">We work with globally trusted logistics partners to support express and reliable international deliveries from Karachi.</p>
+  <div class="ship-cards">
+    <div class="ship-card"><i class="ti ti-truck-delivery" aria-hidden="true"></i><span>UPS</span></div>
+    <div class="ship-card"><i class="ti ti-plane" aria-hidden="true"></i><span>FedEx</span></div>
+    <div class="ship-card"><i class="ti ti-package" aria-hidden="true"></i><span>DHL</span></div>
+    <div class="ship-card"><i class="ti ti-world" aria-hidden="true"></i><span>Aramex</span></div>
+    <div class="ship-card"><i class="ti ti-building" aria-hidden="true"></i><span>TCS</span></div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <p class="sec-eye">Secure Transactions</p>
+    <h2 class="sec-title">Ways To Pay Us</h2>
+    <p class="sec-sub">Flexible global payment options for secure and reliable international transactions.</p>
+    <div class="pay-cards">
+      <div class="pay-card"><i class="ti ti-transfer" aria-hidden="true"></i><span>Wise</span></div>
+      <div class="pay-card"><i class="ti ti-cash" aria-hidden="true"></i><span>Western Union</span></div>
+      <div class="pay-card"><i class="ti ti-coin" aria-hidden="true"></i><span>MoneyGram</span></div>
+      <div class="pay-card"><i class="ti ti-building-bank" aria-hidden="true"></i><span>Bank Transfer</span></div>
+      <div class="pay-card"><i class="ti ti-credit-card" aria-hidden="true"></i><span>Remitly</span></div>
+    </div>
+  </div>
+
+  <div style="margin-top:3rem;">
+    <p class="sec-eye">Trusted & Certified</p>
+    <h2 class="sec-title">Our Certifications</h2>
+    <div class="cert-row">
+      <div class="cert"><i class="ti ti-certificate" aria-hidden="true"></i><span>FBR Registered</span></div>
+      <div class="cert"><i class="ti ti-award" aria-hidden="true"></i><span>SCCI Certified</span></div>
+      <div class="cert"><i class="ti ti-shield-check" aria-hidden="true"></i><span>Export Approved</span></div>
+    </div>
+  </div>
+</div>
+</div>
+
+<section>
+  <p class="sec-eye">Questions?</p>
+  <h2 class="sec-title">Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <div class="faq-q" onclick="var a=this.nextElementSibling;a.classList.toggle('open')">
+        <span>What is your minimum order quantity?</span><i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </div>
+      <div class="faq-a">MOQ depends on product type, fabric and customization method. Share your requirements with us on WhatsApp or the contact form and we will give you an accurate answer for your specific order.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="var a=this.nextElementSibling;a.classList.toggle('open')">
+        <span>How long does production take?</span><i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </div>
+      <div class="faq-a">Standard turnaround is 2 weeks after order confirmation and sample approval. Production time may vary depending on order quantity, customization method and shipping destination.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="var a=this.nextElementSibling;a.classList.toggle('open')">
+        <span>Do you offer free samples?</span><i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </div>
+      <div class="faq-a">Yes — confirm a bulk order of at least 30 pieces with us and we will produce a free sample so you can approve quality before full production begins.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="var a=this.nextElementSibling;a.classList.toggle('open')">
+        <span>Do you ship worldwide?</span><i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </div>
+      <div class="faq-a">Yes. We ship worldwide through UPS, DHL, FedEx and Aramex. We handle all packaging, documentation and export coordination for international orders.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="var a=this.nextElementSibling;a.classList.toggle('open')">
+        <span>What file formats do you accept for designs?</span><i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </div>
+      <div class="faq-a">AI, PDF, PNG, PSD, SVG and high quality reference images are preferred. If you only have a rough idea or mood board, our design team can help build a techpack from scratch.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q" onclick="var a=this.nextElementSibling;a.classList.toggle('open')">
+        <span>Do you do private label and OEM production?</span><i class="ti ti-chevron-down" aria-hidden="true"></i>
+      </div>
+      <div class="faq-a">Yes — we specialize in OEM and private label manufacturing. We can add your custom tags, labels, hangtags and packaging so every piece ships under your brand identity.</div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-wrap">
+<div class="quote-box">
+  <p class="sec-eye">Get Started</p>
+  <h2 class="sec-title">Start Your Production</h2>
+  <p style="font-size:12px;color:var(--muted);line-height:1.9;margin-top:.4rem;font-weight:300;">Fill out the form below and our team will contact you within 24 hours regarding pricing, sampling and production details.</p>
+  <div class="form-grid">
+    <div class="field"><label>Your Name</label><input type="text" placeholder="e.g. Ahmed Khan" /></div>
+    <div class="field"><label>Email or WhatsApp</label><input type="text" placeholder="+92 or email address" /></div>
+    <div class="field">
+      <label>Product Interested In</label>
+      <select><option value="" disabled selected>Select product</option><option>Sportswear</option><option>Streetwear / Hoodies</option><option>Fashion Wear</option><option>Tracksuits / Sweatsuits</option><option>Graphic Tees</option><option>Custom / Private Label</option></select>
+    </div>
+    <div class="field">
+      <label>Estimated Quantity</label>
+      <select><option value="" disabled selected>Select quantity</option><option>20 – 50 pcs</option><option>50 – 100 pcs</option><option>100 – 300 pcs</option><option>300+ pcs</option></select>
+    </div>
+    <div class="field">
+      <label>What best describes you?</label>
+      <select><option value="" disabled selected>Select type</option><option>Startup Brand</option><option>Established Clothing Brand</option><option>Retailer / Store</option><option>Business Owner</option></select>
+    </div>
+    <div class="field">
+      <label>When do you want to start?</label>
+      <select><option value="" disabled selected>Select timeline</option><option>Immediately</option><option>Within 1–2 Weeks</option><option>Within 1 Month</option><option>Just Planning</option></select>
+    </div>
+  </div>
+  <div style="margin-top:12px;" class="field"><label>Tell us about your project</label><textarea placeholder="Describe your requirements — styles, colors, logo, deadline, budget..."></textarea></div>
+  <button class="submit-btn">Submit Inquiry →</button>
+</div>
+</div>
+
+<footer>
+  <div class="footer-brand">
+    <div class="logo-text"><span class="logo-bb">BUILD BEST</span><span class="logo-sub">— Apparel —</span></div>
+    <p>Premium OEM & private label clothing manufacturer from Karachi, Pakistan. Delivering quality, passion and professionalism worldwide.</p>
+    <div class="footer-social">
+      <a class="soc" href="https://www.instagram.com/buildbestapparel" target="_blank"><i class="ti ti-brand-instagram" aria-hidden="true"></i></a>
+      <a class="soc" href="https://wa.me/923248903534" target="_blank"><i class="ti ti-brand-whatsapp" aria-hidden="true"></i></a>
+      <a class="soc" href="mailto:buildbestapparel@gmail.com"><i class="ti ti-mail" aria-hidden="true"></i></a>
+    </div>
+  </div>
+  <div class="footer-col">
+    <h4>Quick Links</h4>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Process</a></li>
+      <li><a href="#">Why Us</a></li>
+      <li><a href="#">FAQ</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Services</h4>
+    <ul>
+      <li><a href="#">Sportswear</a></li>
+      <li><a href="#">Streetwear</a></li>
+      <li><a href="#">Fashion Wear</a></li>
+      <li><a href="#">Embroidery</a></li>
+      <li><a href="#">Private Label / OEM</a></li>
+    </ul>
+  </div>
+  <div class="footer-col">
+    <h4>Contact Us</h4>
+    <ul>
+      <li><a href="https://wa.me/923248903534">+92 324 8903534</a></li>
+      <li><a href="mailto:buildbestapparel@gmail.com">buildbestapparel@gmail.com</a></li>
+      <li><a href="#">Karachi, Pakistan</a></li>
+      <li><a href="https://www.instagram.com/buildbestapparel" target="_blank">@buildbestapparel</a></li>
+    </ul>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <p>© 2026 Build Best Apparel™. All Rights Reserved.</p>
+  <p>Karachi, Pakistan</p>
+</div>
+
+<a class="wa-float" href="https://wa.me/923248903534" target="_blank" aria-label="Chat on WhatsApp">
+  <i class="ti ti-brand-whatsapp" aria-hidden="true"></i>
+</a>
+
+</div>
